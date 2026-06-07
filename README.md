@@ -204,5 +204,6 @@ FINALIZADO
 ## Autor
 
 Adalberto Jesus Navas Piazza
+Lucio Sanchez
 
 Proyecto académico desarrollado para la materia Organización Empresarial.
