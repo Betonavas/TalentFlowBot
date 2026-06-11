@@ -235,9 +235,7 @@ async def mensaje(update: Update,
             "📄 Adjunte su CV en formato PDF."
         )
 
-# ==========================================
-# RECEPCIÓN DE CV
-# ==========================================
+# Recepcion cv
 
 async def recibir_cv(update: Update,
                      context: ContextTypes.DEFAULT_TYPE):
@@ -310,9 +308,7 @@ async def recibir_cv(update: Update,
         "Estado: PENDIENTE"
     )
 
-# ==========================================
-# MAIN
-# ==========================================
+# Main
 
 app = (
     ApplicationBuilder()
