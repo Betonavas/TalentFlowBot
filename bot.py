@@ -11,22 +11,18 @@ import re
 import os
 from datetime import datetime
 
-# ==========================================
-# TOKEN
-# ==========================================
+# Token
 
 with open("token.txt", "r", encoding="utf-8") as archivo:
     TOKEN = archivo.read().strip()
 
-# ==========================================
-# MEMORIA TEMPORAL
-# ==========================================
+
+# Memoria Token
+
 
 usuarios = {}
 
-# ==========================================
-# START
-# ==========================================
+# Start
 
 async def start(update: Update,
                 context: ContextTypes.DEFAULT_TYPE):
@@ -40,13 +36,11 @@ async def start(update: Update,
     print(f"START RECIBIDO - {telegram_id}")
 
     await update.message.reply_text(
-        "👋 Bienvenido a TalentFlow.\n\n"
+        "Bienvenido a TalentFlow.\n\n"
         "Ingrese su nombre:"
     )
 
-# ==========================================
-# MENSAJES
-# ==========================================
+# Mensajes
 
 async def mensaje(update: Update,
                   context: ContextTypes.DEFAULT_TYPE):
@@ -70,7 +64,7 @@ async def mensaje(update: Update,
         if not texto.replace(" ", "").isalpha():
 
             await update.message.reply_text(
-                "❌ Nombre inválido."
+                " Nombre inválido."
             )
             return
 
@@ -88,7 +82,7 @@ async def mensaje(update: Update,
         if not texto.replace(" ", "").isalpha():
 
             await update.message.reply_text(
-                "❌ Apellido inválido."
+                " Apellido inválido."
             )
             return
 
@@ -106,7 +100,7 @@ async def mensaje(update: Update,
         if not re.match(r"^\d{7,8}$", texto):
 
             await update.message.reply_text(
-                "❌ DNI inválido. Debe tener 7 u 8 números."
+                " DNI inválido. Debe tener 7 u 8 números."
             )
             return
 
@@ -127,7 +121,7 @@ async def mensaje(update: Update,
         except ValueError:
 
             await update.message.reply_text(
-                "❌ Formato inválido. Ejemplo: 25-12-1995"
+                " Formato inválido. Ejemplo: 25-12-1995"
             )
             return
 
@@ -148,7 +142,7 @@ async def mensaje(update: Update,
         ):
 
             await update.message.reply_text(
-                "❌ Correo electrónico inválido."
+                " Correo electrónico inválido."
             )
             return
 
@@ -188,7 +182,7 @@ async def mensaje(update: Update,
         if not texto.isdigit():
 
             await update.message.reply_text(
-                "❌ Ingrese solo números."
+                " Ingrese solo números."
             )
             return
 
@@ -209,7 +203,7 @@ async def mensaje(update: Update,
         ):
 
             await update.message.reply_text(
-                "❌ Formato inválido. Ejemplo: 09:00"
+                " Formato inválido. Ejemplo: 09:00"
             )
             return
 
@@ -230,7 +224,7 @@ async def mensaje(update: Update,
         ):
 
             await update.message.reply_text(
-                "❌ Formato inválido. Ejemplo: 18:00"
+                " Formato inválido. Ejemplo: 18:00"
             )
             return
 
@@ -264,7 +258,7 @@ async def recibir_cv(update: Update,
     if not documento.file_name.lower().endswith(".pdf"):
 
         await update.message.reply_text(
-            "❌ Solo se aceptan archivos PDF."
+            " Solo se aceptan archivos PDF."
         )
         return
 
@@ -312,7 +306,7 @@ async def recibir_cv(update: Update,
     usuarios[telegram_id]["estado"] = "FINALIZADO"
 
     await update.message.reply_text(
-        "✅ Postulación registrada correctamente.\n\n"
+        " Postulación registrada correctamente.\n\n"
         "Estado: PENDIENTE"
     )
 
